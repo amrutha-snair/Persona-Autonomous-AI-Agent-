@@ -3,9 +3,6 @@
 import { useState, useRef, useEffect } from 'react';
 import styles from './page.module.css';
 
-const VAPI_PUBLIC_KEY = process.env.NEXT_PUBLIC_VAPI_PUBLIC_KEY;
-const VAPI_ASSISTANT_ID = process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID;
-
 export default function Home() {
   const [messages, setMessages] = useState([
     {
@@ -17,74 +14,11 @@ export default function Home() {
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [sessionId] = useState(() => 'session-' + Date.now());
-  const [callState, setCallState] = useState('idle');
-  const vapiRef = useRef(null);
   const bottomRef = useRef(null);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
-
-  const describeError = (e) => {
-    if (!e) return 'unknown error';
-    if (typeof e === 'string') return e;
-    const fields = ['message', 'errorMsg', 'error', 'errorStage', 'reason', 'action', 'callClientId', 'type'];
-    const out = {};
-    for (const k of fields) if (e[k] !== undefined) out[k] = e[k];
-    if (Object.keys(out).length === 0) {
-      try { return JSON.stringify(e, Object.getOwnPropertyNames(e)); } catch { return String(e); }
-    }
-    return out;
-  };
-
-  const getVapi = async () => {
-    if (vapiRef.current) return vapiRef.current;
-    if (!VAPI_PUBLIC_KEY || !VAPI_ASSISTANT_ID) {
-      alert('Voice not configured: set NEXT_PUBLIC_VAPI_PUBLIC_KEY and NEXT_PUBLIC_VAPI_ASSISTANT_ID in .env.local');
-      return null;
-    }
-    const { default: Vapi } = await import('@vapi-ai/web');
-    const vapi = new Vapi(VAPI_PUBLIC_KEY);
-    vapi.on('call-start', () => setCallState('in-call'));
-    vapi.on('call-end', () => setCallState('idle'));
-    vapi.on('error', (e) => {
-      const detail = describeError(e);
-      const msg = JSON.stringify(detail).toLowerCase();
-      const benign = msg.includes('meeting has ended') || msg.includes('ejected') || msg.includes('left meeting');
-      if (benign) {
-        console.log('Vapi call ended:', detail);
-      } else {
-        console.error('Vapi error:', detail, 'raw:', e);
-        alert('Voice call failed:\n' + (typeof detail === 'string' ? detail : JSON.stringify(detail, null, 2)));
-      }
-      setCallState('idle');
-    });
-    vapiRef.current = vapi;
-    return vapi;
-  };
-
-  const toggleCall = async () => {
-    if (callState === 'in-call' || callState === 'connecting') {
-      setCallState('ending');
-      vapiRef.current?.stop();
-      return;
-    }
-    const vapi = await getVapi();
-    if (!vapi) return;
-    setCallState('connecting');
-    try {
-      await vapi.start(VAPI_ASSISTANT_ID);
-    } catch (err) {
-      const detail = describeError(err);
-      console.error('Call start failed:', detail, 'raw:', err);
-      alert('Could not start call:\n' + (typeof detail === 'string' ? detail : JSON.stringify(detail, null, 2)));
-      setCallState('idle');
-    }
-  };
-
-  useEffect(() => {
-    return () => { vapiRef.current?.stop(); };
-  }, []);
 
   const sendMessage = async (text) => {
     const msg = text || input;
@@ -130,7 +64,7 @@ export default function Home() {
             <p className={styles.subtitle}>AI/ML Engineer · IIT Ropar Researcher</p>
           </div>
         </div>
-        <div className={styles.badge}>RAG-Grounded</div>
+        <div className={styles.badge}>📞 +1 (254) 261-0487</div>
       </header>
 
       <main className={styles.messages}>
@@ -138,7 +72,7 @@ export default function Home() {
           <div key={i} className={`${styles.message} ${styles[msg.role]}`}>
             <div className={styles.bubble}>
               {msg.content.split('\n').map((line, j) => (
-                <p key={j}>{line || ' '}</p>
+                <p key={j}>{line || ' '}</p>
               ))}
             </div>
             {msg.sources && msg.sources.length > 0 && (
@@ -175,14 +109,6 @@ export default function Home() {
       )}
 
       <footer className={styles.inputArea}>
-        <button
-          className={styles.callBtn}
-          onClick={toggleCall}
-          data-state={callState}
-          title={callState === 'in-call' ? 'End call' : 'Start voice call'}
-        >
-          {callState === 'in-call' ? '⏹ End' : callState === 'connecting' ? '…' : '📞 Call'}
-        </button>
         <input
           className={styles.input}
           value={input}
