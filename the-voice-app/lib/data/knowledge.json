@@ -1,0 +1,117 @@
+{
+  "persona": {
+    "name": "Amrutha Satheesan",
+    "email": "amruthasnair0502@gmail.com",
+    "phone": "+91 9875796132",
+    "linkedin": "linkedin.com/in/amrutha-snair",
+    "github": "github.com/amrutha-snair",
+    "title": "AI/ML-focused Computer Science Undergraduate",
+    "timezone": "Asia/Kolkata"
+  },
+  "documents": [
+    {
+      "id": "resume-summary",
+      "source": "resume",
+      "section": "summary",
+      "content": "Amrutha Satheesan is an AI/ML-focused Computer Science undergraduate with research experience at IIT Ropar, specializing in computer vision and intelligent automation. She has built production-oriented AI applications using Python, PyTorch, Node.js, and LLM APIs, and has two CVIP research publications."
+    },
+    {
+      "id": "resume-education",
+      "source": "resume",
+      "section": "education",
+      "content": "Education: B.Tech in Computer Science and Engineering from NIMS University, Jaipur, with a CGPA of 8.5, graduating in 2026. Previously attended St. Xavier's School, Nevta, Jaipur where she scored 75.2% in Class XII (2022) and 83.2% in Class X (2020)."
+    },
+    {
+      "id": "resume-experience-1",
+      "source": "resume",
+      "section": "experience",
+      "content": "Research Intern at IIT Ropar (Feb 2026 – Present): Developed a Python automation framework using ADB and UIAutomator2 to programmatically control Android devices for large-scale dataset image acquisition (35,000 images). Extracted captions received alongside images and automatically renamed each image file to its corresponding caption. Created cross-platform automation scripts for 6 platforms (WhatsApp, Telegram, X, Arattai, Signal, Instagram), reducing dataset creation time from 6.5 months to under 1 month by eliminating manual device interaction."
+    },
+    {
+      "id": "resume-experience-2",
+      "source": "resume",
+      "section": "experience",
+      "content": "AI Research Intern at IIT Ropar (Jun 2024 – Jul 2024): Designed a novel classification pipeline for yoga pose classification using the Yoga-82 dataset (28,000+ RGB images), achieving 96.70% accuracy and precision score of 0.967. Integrated ConvNeXt architecture with boosting algorithms to enhance classification efficiency. Contributed to a peer-reviewed publication at CVIP 2024 based on research outcomes."
+    },
+    {
+      "id": "resume-skills",
+      "source": "resume",
+      "section": "skills",
+      "content": "Technical Skills: Languages: Python, JavaScript. Frameworks & Libraries: PyTorch, Scikit-learn, NumPy, Pandas, Node.js, Express.js, Mongoose. Web & Databases: HTML, CSS, REST API, JWT Authentication, MongoDB. Others: Git, Postman, Linux, AWS (EC2, S3), Docker."
+    },
+    {
+      "id": "resume-publications",
+      "source": "resume",
+      "section": "publications",
+      "content": "Publications: 1. S. Chaturvedi, A. Satheesan, and B. Debnath, 'Robust Quantization for Edge Vision Models', CVIP 2025, India (Accepted). 2. A. K. Prajapat, A. Satheesan, H. Gangwani, D. Dolui, and P. Dey, 'HYPC-Net: A Hybrid Yoga Pose Classification Network', CVIP 2024, India (Published)."
+    },
+    {
+      "id": "resume-achievements",
+      "source": "resume",
+      "section": "achievements",
+      "content": "Achievements: 5-star rating in Python on HackerRank. Global Rank 611 in CodeChef Starters 202 (Division 4), 2025. Participated in HackXlerate Hackathon. Selected at institute level for Smart India Hackathon and participated through the second evaluation stage."
+    },
+    {
+      "id": "github-gemchat",
+      "source": "github",
+      "repo": "GemChat",
+      "url": "https://github.com/amrutha-snair/GemChat",
+      "content": "GemChat is a full-stack AI chat application powered by Google Gemini, featuring real-time text conversations and multimodal vision capabilities — users can upload an image and ask the AI about it. Tech stack: React 19, Vite 7, Axios for frontend; Node.js, Express 5 for backend; Google Gemini API (@google/generative-ai) for AI. The project structure has server.js (Express server with API routes), agent.js (Gemini AI agent handling text and image prompts), and a React client with App.jsx, ChatInput.jsx, and MessageList.jsx components. Design tradeoff: Used Gemini Flash model for speed over Pro for quality. What she'd do differently: Add conversation memory/history persistence and streaming responses."
+    },
+    {
+      "id": "github-concept-simplifier",
+      "source": "github",
+      "repo": "Concept-Simplifier",
+      "url": "https://github.com/amrutha-snair/Concept-Simplifier",
+      "content": "Concept Simplifier is an autonomous multi-agent feedback loop designed to simplify complex technical concepts into beginner-friendly explanations. Powered by Node.js, React, and Ollama for a completely private, local-first experience. It implements a recursive refinement loop with four cognitive modules: 1) The Explainer (generates initial narrative), 2) The Complexity Critic (evaluates for jargon, returns score 0-10), 3) The Refiner (rewrites based on feedback), 4) The Stop Controller (releases only when score >= 8). Features: autonomous refinement, conversational UI, human-in-the-loop feedback, real-time transparency with thinking indicators, 100% private via Ollama. Licensed under MIT. Design tradeoff: Chose Ollama for privacy over cloud APIs for quality. Architecture shows understanding of agentic AI patterns, multi-agent coordination, and iterative improvement loops."
+    },
+    {
+      "id": "github-auth-service",
+      "source": "github",
+      "repo": "Auth_Service",
+      "url": "https://github.com/amrutha-snair/Auth_Service",
+      "content": "Auth_Service (AuthShield) is a secure full-stack authentication service built using Node.js, Express, MongoDB, and Vanilla JavaScript. Implements production-style auth including JWT access tokens, HTTP-only refresh token cookies, refresh token rotation, email verification, forgot/reset password flow, protected dashboard sessions, token expiry display, and toast notification system. Frontend is a Single Page Authentication UI built with pure HTML, CSS, and JavaScript (no frameworks). Backend uses bcrypt for password hashing, crypto for secure token generation, and cookie-based authentication. Access tokens stored in memory (not localStorage) to reduce XSS risks, while refresh tokens are securely stored in cookies and rotated for enhanced security. Design tradeoff: Chose vanilla JS over React to demonstrate core web fundamentals and reduce complexity."
+    },
+    {
+      "id": "github-plantcare-ai",
+      "source": "github",
+      "repo": "PlantCare-AI",
+      "url": "https://github.com/amrutha-snair/PlantCare-AI",
+      "content": "PlantCare AI is a web application that identifies diseases in plants using Deep Learning. Features: AI Prediction that classifies over 80 types of plant diseases, modern UI with clean flat design and AI Scanner loading animation, fast performance powered by Vite and FastAPI. Tech stack: React + Vite for frontend, FastAPI + PyTorch for backend, trained model (finalmodel.pth) for inference. Project structure: backend with server.py, inference.py, and model weights; frontend with React components. Deployed on Vercel at plant-care-ai-eta.vercel.app. Design tradeoff: Used a single large model rather than an ensemble for inference speed. What she'd do differently: Add real-time camera feed for continuous monitoring."
+    },
+    {
+      "id": "github-doctorsapp",
+      "source": "github",
+      "repo": "DoctorsApp-backend",
+      "url": "https://github.com/amrutha-snair/DoctorsApp-backend",
+      "content": "DoctorsApp-backend is a backend service built with JavaScript/Node.js. It has 2 stars on GitHub, indicating community interest. The repository focuses on backend API development, likely for a healthcare-related application managing doctor appointments or medical data. Built with JavaScript and hosted on GitHub."
+    },
+    {
+      "id": "github-gallery",
+      "source": "github",
+      "repo": "Gallery_Backend & Gallery_Frontend",
+      "url": "https://github.com/amrutha-snair/Gallery_Backend",
+      "content": "Gallery is a full-stack project split into separate backend and frontend repos. Gallery_Backend is built with JavaScript/Node.js and has 1 star. Gallery_Frontend is also JavaScript-based with 1 star. This separation shows understanding of microservice-like architecture and clean code organization with decoupled frontend and backend."
+    },
+    {
+      "id": "github-microservice",
+      "source": "github",
+      "repo": "microservice_proj1",
+      "url": "https://github.com/amrutha-snair/microservice_proj1",
+      "content": "Microservice Project consists of User & Order Services — a microservices-based backend built with Node.js, Express, and MongoDB. The project has two independently running services that communicate over HTTP: User Service (port 5000) handles user creation and retrieval; Order Service (port 5001) handles order creation and retrieval, validating user existence via the User Service before creating an order. This demonstrates understanding of microservice architecture, inter-service communication, and service boundary design."
+    },
+    {
+      "id": "github-oralvis",
+      "source": "github",
+      "repo": "Oralvis-frontend",
+      "url": "https://github.com/amrutha-snair/Oralvis-frontend",
+      "content": "Oralvis-frontend is a forked repository with a GPL-3.0 license, deployed on Vercel at oralvis-frontend-one.vercel.app. This is likely an oral/dental visualization application frontend, showing Amrutha's involvement in healthcare AI applications."
+    },
+    {
+      "id": "role-fit",
+      "source": "resume",
+      "section": "role_fit",
+      "content": "Why Amrutha is a strong fit for an AI Engineer Intern role: 1) Research experience at IIT Ropar in computer vision and automation — demonstrates ability to work on cutting-edge AI problems in academic settings. 2) Two peer-reviewed publications at CVIP (one published, one accepted) — rare for an undergraduate, shows research rigor. 3) Hands-on AI projects: Built multimodal chat apps (GemChat with Gemini), agentic AI systems (Concept Simplifier with multi-agent loops), and deep learning applications (PlantCare AI with PyTorch). 4) Full-stack capable: Node.js, Express, React, MongoDB, REST APIs — can build end-to-end AI applications, not just ML models. 5) Strong Python + PyTorch foundation with practical experience in model training, inference, and deployment. 6) Experience with LLM APIs (Google Gemini, Ollama) and modern AI patterns (RAG, agentic loops, function calling). 7) Practical automation skills: Created cross-platform automation scripts that reduced dataset creation time by 85% (6.5 months → 1 month)."
+    }
+  ]
+}
