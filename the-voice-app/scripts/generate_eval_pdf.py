@@ -53,7 +53,7 @@ story.append(hr())
 # 1. Voice Quality
 story.append(Paragraph("1. Voice Quality", h_style))
 story.append(Paragraph(
-    "<b>Stack:</b> Vapi (Custom LLM webhook) + Deepgram Nova-3 STT + Vapi voice &lsquo;Elliot&rsquo; TTS + Gemini 2.5-flash "
+    "<b>Stack:</b> Vapi (Custom LLM webhook) + Deepgram Nova-3 STT + Vapi voice &lsquo;Elliot&rsquo; TTS + Gemini 3.5-flash "
     "via <font face='Courier'>/api/vapi/chat</font>.",
     body_style,
 ))
@@ -70,9 +70,14 @@ story.append(Paragraph(
     body_style,
 ))
 story.append(Paragraph(
-    "<b>Task completion rate (booking, N test calls):</b> <b>0/3 voice bookings</b> &mdash; calls ended at silence before any "
-    "user turn reached the booking flow. The booking tools themselves work: end-to-end tested via the chat endpoint (N=2 "
-    "<font face='Courier'>check_availability</font> + N=2 <font face='Courier'>book_meeting</font> tool calls fired with valid Cal.com payloads; <b>2/2 succeeded</b>).",
+    "<b>Task completion rate (booking):</b> <b>0/3 voice bookings</b> via phone (silence bug ended calls before tool-use turn). "
+    "Booking flow fully verified via chat: <b>1/1 successful end-to-end <font face='Courier'>book_meeting</font></b> against live "
+    "Cal.com v2 API (Wed 17 Jun 2026 6:45 PM UTC, &lsquo;Demo&rsquo;, confirmation email delivered, event visible in "
+    "<font face='Courier'>app.cal.com/bookings</font>, manually deleted post-test). First-attempt rejection at 6:00 PM UTC handled gracefully "
+    "&mdash; agent re-ran <font face='Courier'>check_availability</font> and offered alternatives without fabricating success. "
+    "<b>Caught during verification:</b> initial bookings silently returned 2xx but never appeared on the calendar because "
+    "<font face='Courier'>CAL_EVENT_TYPE_ID=1</font> was a placeholder; fixed by querying Cal.com&rsquo;s "
+    "<font face='Courier'>/v2/event-types</font> to get the real id (<font face='Courier'>5912777</font>).",
     body_style,
 ))
 
@@ -105,7 +110,7 @@ story.append(Paragraph("3. Three Failure Modes Discovered", h_style))
 story.append(Paragraph(
     "<b>a) Gemini 2.0-flash quota=0.</b> First chat request 429&rsquo;d with <font face='Courier'>limit: 0</font>. "
     "<b>Root cause:</b> the API key belonged to a project where 2.0-flash had no free-tier allowance. "
-    "<b>Fix:</b> switched <font face='Courier'>chatModel</font> to <font face='Courier'>gemini-2.5-flash</font> in "
+    "<b>Fix:</b> switched <font face='Courier'>chatModel</font> to <font face='Courier'>gemini-3.5-flash</font> in "
     "<font face='Courier'>lib/config.js</font>, made it env-overridable via <font face='Courier'>GEMINI_MODEL</font>.",
     body_style,
 ))
