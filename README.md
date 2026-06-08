@@ -9,7 +9,7 @@ End-to-end AI persona of **Amrutha Satheesan** that you can **call**, **chat wit
 
 | Channel | Link |
 |---|---|
-| Chat | [https://YOUR-APP.vercel.app *(replace after deploy)](https://the-voice-app.vercel.app/)* |
+| Chat | *https://the-voice-app.vercel.app/* |
 | Phone (US) | **+1 (254) 261-0487** *(call free via WhatsApp / Skype)* |
 | Browser voice | Click **Call** on the chat page |
 
